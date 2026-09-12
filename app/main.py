@@ -48,7 +48,6 @@ class AndroidDeveloper(SoftwareEngineer):
 
 
 class FullStackDeveloper(BackendDeveloper, FrontendDeveloper):
-    # compute combined class-level skills so this expression can run during class creation
     skills: list[str] = BackendDeveloper.skills + FrontendDeveloper.skills
 
     def __init__(self, name: str) -> None:
