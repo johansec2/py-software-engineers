@@ -47,12 +47,15 @@ class AndroidDeveloper(SoftwareEngineer):
         return "Ads every three swipes"
 
 
-class FullStackDeveloper(FrontendDeveloper, BackendDeveloper):
+class FullStackDeveloper(BackendDeveloper, FrontendDeveloper):
+    # compute combined class-level skills so this expression can run during class creation
+    skills: list[str] = BackendDeveloper.skills + FrontendDeveloper.skills
+
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        self.skills = FrontendDeveloper.skills + BackendDeveloper.skills
 
     def create_web_application(self) -> None:
         print(f"{self.name} started creating a web application...")
+        # these calls already print their own messages
         self.create_powerful_api()
         self.create_awesome_web_page()
