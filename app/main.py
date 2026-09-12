@@ -54,11 +54,11 @@ class AndroidDeveloper(SoftwareEngineer):
 
 class FullStackDeveloper(BackendDeveloper, FrontendDeveloper):
     skills: list[str] = [
-        "Python", 
-        "SQL", 
-        "Django", 
-        "JavaScript", 
-        "CSS", 
+        "Python",
+        "SQL",
+        "Django",
+        "JavaScript",
+        "CSS",
         "HTML"]
 
     def __init__(self, name: str) -> None:
