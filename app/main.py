@@ -25,6 +25,19 @@ class FrontendDeveloper(SoftwareEngineer):
         return "<h1>Hello world</h1>"
 
 
+class BackendDeveloper(SoftwareEngineer):
+    def __init__(self, name: str) -> None:
+        super().__init__(name)
+        self.skills = [
+            "Python",
+            "SQL",
+            "Django"]
+
+    def create_powerful_api(self) -> str:
+        print(f"{self.name} is creating an API...")
+        return "http://127.0.0.1:8000"
+
+
 class AndroidDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
@@ -40,8 +53,13 @@ class AndroidDeveloper(SoftwareEngineer):
 
 
 class FullStackDeveloper(BackendDeveloper, FrontendDeveloper):
-    # backend skills first, then frontend skills (exact order expected by tests)
-    skills: list[str] = ["Python", "SQL", "Django", "JavaScript", "CSS", "HTML"]
+    skills: list[str] = [
+        "Python", 
+        "SQL", 
+        "Django", 
+        "JavaScript", 
+        "CSS", 
+        "HTML"]
 
     def __init__(self, name: str) -> None:
         super().__init__(name)
