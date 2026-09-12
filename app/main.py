@@ -12,35 +12,27 @@ class SoftwareEngineer:
 class FrontendDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
+        # order and values must match tests
         self.skills = [
             "JavaScript",
-            "HTML",
-            "CSS"]
+            "CSS",
+            "HTML"
+        ]
 
     def create_awesome_web_page(self) -> str:
-        print(f"{self.name} is creating a web page...")
-        return "<h1>Hello, World</h1>"
-
-
-class BackendDeveloper(SoftwareEngineer):
-    def __init__(self, name: str) -> None:
-        super().__init__(name)
-        self.skills = [
-            "Python",
-            "SQL",
-            "Django"]
-
-    def create_powerful_api(self) -> str:
-        print(f"{self.name} is creating an API...")
-        return "http://127.0.0.1:8000"
+        # exact printed message and returned string required by tests
+        print(f"{self.name} is creating a webpage...")
+        return "<h1>Hello world</h1>"
 
 
 class AndroidDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
+        # lowercase 'studio' required by tests
         self.skills = [
             "Java",
-            "Android Studio"]
+            "Android studio"
+        ]
 
     def create_smooth_mobile_app(self) -> str:
         print(f"{self.name} is creating a mobile app...")
@@ -48,18 +40,13 @@ class AndroidDeveloper(SoftwareEngineer):
 
 
 class FullStackDeveloper(BackendDeveloper, FrontendDeveloper):
+    # backend skills first, then frontend skills (exact order expected by tests)
+    skills: list[str] = ["Python", "SQL", "Django", "JavaScript", "CSS", "HTML"]
+
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        self.skills = [
-            "JavaScript",
-            "HTML",
-            "CSS",
-            "Python",
-            "SQL",
-            "Django"]
 
     def create_web_application(self) -> None:
         print(f"{self.name} started creating a web application...")
-        # these calls already print their own messages
         self.create_powerful_api()
         self.create_awesome_web_page()
